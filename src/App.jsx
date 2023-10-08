@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./pages/protected/ProtectedRoute";
+import Index from "./pages/Index";
 import Home from "./pages/dashboard/Main";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -14,7 +15,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route index element={<div>hello</div>} />
+        <Route index element={<Index />} />
         <Route path="/" element={<ProtectedRoute><Main /></ProtectedRoute>}>
           <Route path="dashboard" index exact element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="dashboard/create" element={<ProtectedRoute><Create /></ProtectedRoute>} />
